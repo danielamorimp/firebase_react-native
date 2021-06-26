@@ -38,8 +38,6 @@ export default function Home ({navigation}) {
 
   function createUserFirebase(){
     firebase.auth().createUserWithEmailAndPassword(email, senha).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
       alert(errorCode, errorMessage);
     });
   }
