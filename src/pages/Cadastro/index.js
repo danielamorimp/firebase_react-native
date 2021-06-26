@@ -7,14 +7,6 @@ export default function Cadastro({navigation}) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  function loginFirebase(){
-    firebase.auth().signInWithEmailAndPassword(email, senha).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorCode, errorMessage);
-
-    });
-  }
 
   useEffect(()=>{
     firebase.auth().onAuthStateChanged(function(user) {
@@ -36,34 +28,13 @@ export default function Cadastro({navigation}) {
     });
   }
 
-  function createUserFirebase(){
-    firebase.auth().createUserWithEmailAndPassword(email, senha).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      alert(errorCode, errorMessage);
-    });
-  }
-
-
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Vasco</Text>
-
-      <TextInput style={styles.input} placeholder='digite seu e-mail' onChangeText={email => setEmail(email)} value={email} />
-
-      <TextInput style={styles.input} placeholder='digite sua senha' onChangeText={senha => setSenha(senha)} value={senha} />
-  
-      <TouchableOpacity style={styles.button} onPress={()=>{ loginFirebase()}}>
-        <Text>Login</Text>
-      </TouchableOpacity>
+      <Text style={styles.text}>Cadastro</Text>
 
       <TouchableOpacity style={styles.button} onPress={()=>{ logOutFirebase()}}>
         <Text>LogOut</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={()=>{ createUserFirebase()}}>
-        <Text>Criar Usuario</Text>
       </TouchableOpacity>
 
     </View>
