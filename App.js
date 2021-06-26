@@ -9,7 +9,6 @@ import Home from './src/pages/Home';
 import Cadastro from './src/pages/Cadastro';
 
 const Stack = createStackNavigator();
-static navigation
 
 export default function App() {
 
